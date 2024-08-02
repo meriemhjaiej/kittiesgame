@@ -23,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let score = 0;
 
     const images = [
-        'cimg1.jpg', 'cimg2.jpg', 'cimg3.jpg', 'cimg4.jpg',
-        'cimg5.jpg', 'cimg6.jpg', 'cimg7.jpg', 'cimg8.jpg',
+        'img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg',
+        'img5.jpg', 'img6.jpg', 'img7.jpg', 'img8.jpg',
+        'img9.jpg', 'img10.jpg',
     ];
 
     function shuffle(array) {
@@ -94,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         timer = setInterval(() => {
             time++;
             timeDisplay.textContent = time;
-            if (time >=90) { // 1.5 minute
+            if (time >=60) { // 1 minute
                 clearInterval(timer);
                 showConfirm()
                 // alert('Time up! Try again <3 ');

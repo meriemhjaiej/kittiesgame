@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var yesButton = document.getElementById("yes")
 
     yesButton.addEventListener("click", function () {
+        score=score-20;
         resetGame();
         closeConfirm();
     })

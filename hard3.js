@@ -23,10 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let score = 0;
 
     const images = [
-        'cimg1.jpg', 'cimg2.jpg', 'cimg3.jpg', 'cimg4.jpg',
-        'cimg5.jpg', 'cimg6.jpg', 'cimg7.jpg', 'cimg8.jpg',
-    ];
+        'img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg',
+        'img5.jpg', 'img6.jpg', 'img7.jpg', 'img8.jpg',
+        'img9.jpg', 'img10.jpg',
 
+    ];
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    var yesButton = document.getElementById("yes")
+    var yesButton = document.getElementById("yes");
 
     yesButton.addEventListener("click", function () {
         score=score-20;
@@ -94,12 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
         timer = setInterval(() => {
             time++;
             timeDisplay.textContent = time;
-            if (time >=90) { // 1.5 minute
+            if (time >= 90) { // 1.5 minute
                 clearInterval(timer);
-                showConfirm()
-                // alert('Time up! Try again <3 ');
-                // console.log(confirm('Time up! Try again <3 '));
-                // resetGame();
+                showConfirm();
             }
         }, 1000);
     }
@@ -117,7 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
         createBoard();
         startTimer();
     }
+
+    function shuffleCards() {
+        const cardElements = Array.from(gameBoard.children);
+        shuffle(cardElements);
+        cardElements.forEach(card => gameBoard.appendChild(card));
+    }
+
     restartBtn.addEventListener('click', resetGame);
+    
+    setInterval(shuffleCards, 15000); // Shuffle every 10 seconds
 
     createBoard();
     startTimer();
